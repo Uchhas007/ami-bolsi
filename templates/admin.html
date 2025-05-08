@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<!-- Main Content-->
+<div class="container px-4 px-lg-5 mt-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+
+            <!-- Welcome Message -->
+            <div class="post-preview text-center mb-4">
+                <h2 class="title display-4 text-primary">Welcome to the Admin Panel, Boss!!</h2>
+                <h3 class="subtitle text-muted">Do as much brainrot as you want</h3>
+                <hr>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="/edit/0" class="btn btn-dark btn-lg">Add A Post</a> <!-- Changed color to navy blue -->
+                    <a href="/logout" class="btn btn-danger btn-lg">Logout</a> <!-- Kept the logout color as red -->
+                </div>
+                <hr>
+            </div>
+
+            <!-- File Upload -->
+            <div class="mb-4 text-center">
+                <h4 class="text-primary">Upload a File</h4>
+                <!-- the form will pass the action of uploaading any file to the pipeline /uploader -->
+                <form action="/uploader" method="post" enctype="multipart/form-data" class="d-flex justify-content-center align-items-center">
+                    <div class="input-group">
+                        <input type="file" name="file1" class="form-control" required>
+                        <button type="submit" class="btn btn-dark ms-2">Submit</button> <!-- Changed color to navy blue -->
+                    </div>
+                </form>
+            </div>
+
+            <!-- Posts Table -->
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Serial Number</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Tagline</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for p in posts %} <!-- fetching all the posts from backend (which will redirect to datbase) to frontend -->
+                        <!-- hence the variable that we've passed in the database is posts so we write posts here in jinja looping -->
+                        <tr>
+                            <th scope="row">{{ p.sno }}</th>
+                            <td>{{ p.title }}</td>
+                            <td>{{ p.tagline }}</td>
+                            <td>{{ p.date }}</td>
+                            <td><a href="/edit/{{ p.sno }}" class="btn btn-dark btn-sm">Edit</a></td> <!-- Changed color to navy blue -->
+                            <td><a href="/delete/{{ p.sno }}" class="btn btn-danger btn-sm">Delete</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

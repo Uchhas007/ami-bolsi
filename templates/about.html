@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block body %}
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('{{ url_for('static', filename='img/about-bg.jpg') }}'); background-size: cover; background-position: center; position: relative; height: 100vh; text-align: center; color: white;">
+    <div class="container position-relative px-4 px-lg-5 h-100 d-flex justify-content-center align-items-center">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7 text-center">
+                <div class="page-heading">
+                    <h1 class="display-4 font-weight-bold text-shadow" style="font-family: 'Orbitron', sans-serif;">About Me</h1>
+                    <span class="subheading text-shadow" style="font-family: 'Roboto', sans-serif; font-weight: 300;">This is what I do.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<main class="mb-4">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <!-- Main content in black text -->
+                <p class="lead text-center text-dark opacity-100" style="font-family: 'Roboto', sans-serif; font-weight: 300; line-height: 1.8;">
+                    Welcome to the future. Here's a glimpse of what I do and the story that shapes my journey. Imagine endless possibilities and innovations—this is the essence of what drives me.
+                </p>
+                <p class="text-center text-dark opacity-100" style="font-family: 'Roboto', sans-serif; font-weight: 300;">
+                    Technology and creativity are my two primary lenses. Whether it's building systems, solving complex problems, or innovating new tools, I'm always focused on creating something impactful. I don't just adapt to change—I aim to drive it.
+                </p>
+                <p class="text-center text-dark opacity-100" style="font-family: 'Roboto', sans-serif; font-weight: 300;">
+                    Here's to connecting the dots between imagination and implementation. Welcome to my journey through the realms of tech, art, and innovation. 
+                </p>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

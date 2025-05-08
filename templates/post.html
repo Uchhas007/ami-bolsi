@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block body %}
+        <!-- Page Header -->
+        {% set fname = 'assets/img/' + post.img_file %}
+        <header class="masthead" style="background-image: url('{{ url_for('static', filename=fname) }}'); background-size: cover; background-position: center; position: relative; height: 100vh; text-align: center; color: white; box-shadow: inset 0 0 60px rgba(0,0,0,0.6);">
+            <div class="container position-relative px-4 px-lg-5 h-100 d-flex justify-content-center align-items-center">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7 text-center">
+                        <div class="post-heading">
+                            <h1 class="display-4 font-weight-bold text-shadow" style="font-family: 'Orbitron', sans-serif;">{{ post.title }}</h1>
+                            <h2 class="subheading text-shadow" style="font-family: 'Roboto', sans-serif; font-weight: 300;">Problems look mighty small from 150 miles up</h2>
+                            <span class="meta text-shadow" style="font-family: 'Roboto', sans-serif; font-weight: 300;">
+                                Posted by
+                                <a href="#!" style="color: #ff9800;">Uchhas</a>
+                                on {{ post.date }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Post Content -->
+        <article class="mb-4" style="background-color: #f4f4f4; padding: 40px 0;">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <!-- Content Block -->
+                        <div class="post-content" style="font-family: 'Roboto', sans-serif; line-height: 1.8; font-weight: 300;">
+                            <p class="lead text-dark" style="font-size: 1.1rem; color: #333; font-weight: 400;">
+                                {{ post.content }}
+                            </p>
+                            
+                            <div class="credits text-center mt-5">
+                                <p class="small text-muted">
+                                    Placeholder text by 
+                                    <a href="http://spaceipsum.com/" style="color: #ff9800;">Space Ipsum</a>
+                                    &middot; Images by 
+                                    <a href="https://www.flickr.com/photos/nasacommons/" style="color: #ff9800;">NASA on The Commons</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+{% endblock %}

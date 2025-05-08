@@ -1,0 +1,16 @@
+{
+    "params":
+    {
+        "name": "Uchhas Saha",
+        "gmail-user": "brucethomaswayne1915@gmail.com",
+        "gmail_password": "thereferenceofbrucebecomingbatmanwaswitnessedin_The_Joker1019's end",
+        "websitename": "আমি বলসি",
+        "fb": "https://www.facebook.com/",
+        "gh": "https://github.com/",
+        "no_of_posts": 3,
+        "login_image": "static/assets/img/about-bg.jpg",
+        "admin_user": "uchhas@gmail.com",
+        "admin_pass": "bakchodi",
+        "upload_location": "E:\\WebDev\\Flask\\static\\assets\\img"
+    }
+}

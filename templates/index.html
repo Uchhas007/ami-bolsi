@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<!-- Page Header--> 
+<header class="masthead" style="background-image: url('{{ url_for('static', filename='assets/img/home-bg.jpg') }}'); background-size: cover; background-position: center;">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading text-center text-white">
+                    <h1>কালকের চিপা!!!</h1>
+                    <span class="subheading">আপনার মস্তিষ্কের পচন , আটকে থাকুক আমাদের মাইঙ্কের চিপায়...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Flash Messages -->
+{% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+    <div class="container mt-4">
+        {% for category, msg in messages %}
+            <!-- Flash message alert -->
+            <div class="alert alert-{{ category }} alert-dismissible fade show text-center shadow-lg rounded-3" role="alert">
+                <strong>{{ msg }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+{% endwith %}
+
+<!-- Auto-dismiss alert after 5 seconds -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(() => {
+            let alerts = document.querySelectorAll('.alert');
+            alerts.forEach(alert => {
+                let bsAlert = new bootstrap.Alert(alert);
+                bsAlert.close();
+            });
+        }, 5000);
+    });
+</script>
+
+<!-- Main Content -->
+<div class="container px-4 px-lg-5 mt-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <!-- Post Preview Loop -->
+            {% for post in posts %}
+                <div class="post-preview mb-4">
+                    <a href="/post/{{ post.slug }}">
+                        <h2 class="post-title">{{ post.title }}</h2>
+                        <h3 class="post-subtitle text-muted">{{ post.tagline }}</h3>
+                    </a>
+                    <p class="post-meta text-muted">
+                        Posted by <a href="#">Admin</a> on {{ post.date }}
+                    </p>
+                    <p>{{ post.content[0:143] }}...</p>
+                    <hr class="my-4">
+                </div>
+            {% endfor %}
+
+            <!-- Pager -->
+            <div class="d-flex justify-content-between">
+                <a class="btn btn-dark" href="{{ prev }}">&larr; Previous</a>
+                <a class="btn btn-dark" href="{{ next }}">Next &rarr;</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
