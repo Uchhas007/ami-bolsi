@@ -150,7 +150,6 @@ def logout():
     return redirect('/dashboard')
     
 
-# http://127.0.0.1:5000/post/first-post
 # we want to show the slug hence we wrote this shit in app.route()
 @app.route("/post/<string:post_slug>", methods=['GET'])
 # post_slug is a varible.
@@ -161,7 +160,6 @@ def post_route(post_slug):
     return render_template('post.html', params=params, post = p)
 
 
-# http://127.0.0.1:5000/edit/1
 @app.route("/edit/<string:sno>" , methods=['GET', 'POST'])
 def edit(sno):
     if "user" in session and session['user']==params['admin_user']:
